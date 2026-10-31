@@ -1,0 +1,32 @@
+# Cloud deployment requirements (Streamlit Community Cloud / Render / Railway)
+# ─────────────────────────────────────────────────────────────────────────────
+# These replace the local Ollama stack with Groq's free cloud API.
+# Install with: pip install -r requirements_cloud.txt
+# ─────────────────────────────────────────────────────────────────────────────
+
+# Core Agent Orchestration
+langgraph>=0.2.0
+langchain>=0.3.0
+langchain-core>=0.3.0
+
+# Cloud LLM — Groq API (free tier, no credit card for basic use)
+# Replaces langchain-ollama which requires a local Ollama server
+langchain-groq>=0.2.0
+
+# Free Web Search & Ingestion
+duckduckgo-search>=6.0.0
+pymupdf>=1.24.0
+beautifulsoup4>=4.12.0
+requests>=2.31.0
+
+# Data Validation & Utilities
+pydantic>=2.0.0
+python-dotenv>=1.0.0
+
+# Frontend & Export
+streamlit>=1.35.0
+fpdf2>=2.7.9
+markdown>=3.6
+
+# Testing
+pytest>=8.0.0

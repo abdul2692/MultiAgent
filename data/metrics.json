@@ -1,0 +1,26 @@
+{
+  "tasks": [
+    {
+      "timestamp": "2026-10-31 20:09:48",
+      "topic": "Commercial Feasibility of Solid-State Batteries in Commercial Aviation",
+      "duration_seconds": 145.11,
+      "success": true,
+      "sources_collected": 3,
+      "agent_statuses": {
+        "all_agents": "completed"
+      },
+      "cost_inr": 0.0,
+      "cost_usd": 0.0,
+      "error": null
+    }
+  ],
+  "summary": {
+    "total_tasks": 1,
+    "successful_tasks": 1,
+    "failed_tasks": 0,
+    "avg_execution_time_seconds": 145.11,
+    "total_sources_collected": 3,
+    "total_cost_inr": 0.0,
+    "total_cost_usd": 0.0
+  }
+}

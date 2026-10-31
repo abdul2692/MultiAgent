@@ -1,0 +1,20 @@
+[server]
+# Makes the app accessible from outside localhost (needed for ngrok & LAN sharing)
+headless = true
+address = "0.0.0.0"
+port = 8501
+# Allow large PDF uploads (up to 50 MB)
+maxUploadSize = 50
+
+[browser]
+# Suppresses the "Check your email" pop-up on first launch
+gatherUsageStats = false
+
+[theme]
+# Professional dark theme matching the app design
+base = "dark"
+primaryColor = "#6366f1"
+backgroundColor = "#0f172a"
+secondaryBackgroundColor = "#1e293b"
+textColor = "#e2e8f0"
+font = "sans serif"
