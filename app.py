@@ -16,6 +16,7 @@ from graph.workflow import create_research_graph
 from graph.state import ResearchState
 from tools.report_generator import export_to_markdown, export_to_pdf
 from utils.metrics import tracker
+from utils.llm_factory import is_cloud_mode
 from utils.ollama_manager import ensure_ollama_running
 
 # ---------------------------------------------------------
@@ -200,12 +201,16 @@ with st.sidebar:
     </div>
     """, unsafe_allow_html=True)
 
-    # Check and display Ollama status
-    is_ollama_ready = ensure_ollama_running()
-    if is_ollama_ready:
-        st.success("🟢 Local Ollama: Connected (`llama3.2:1b`)")
+    # Check and display LLM status — cloud or local
+    if is_cloud_mode():
+        is_ollama_ready = True   # Groq cloud API — always available
+        st.success("🟢 Cloud LLM: Groq API Connected (`llama-3.1-8b-instant`)")
     else:
-        st.error("🔴 Local Ollama: Offline")
+        is_ollama_ready = ensure_ollama_running()
+        if is_ollama_ready:
+            st.success("🟢 Local Ollama: Connected (`llama3.2:1b`)")
+        else:
+            st.error("🔴 Local Ollama: Offline")
 
     st.markdown("---")
     st.markdown("### 📊 Operational Telemetry")
@@ -373,7 +378,7 @@ start_clicked = st.button("🚀 Start Autonomous Research", type="primary", use_
 if start_clicked:
     if not user_topic.strip():
         st.warning("⚠️ Please provide a research topic before launching the agents.")
-    elif not is_ollama_ready:
+    elif not is_ollama_ready and not is_cloud_mode():
         st.error("⚠️ Ollama local server is offline. Please start Ollama before proceeding.")
     else:
         # Ingest PDF files
