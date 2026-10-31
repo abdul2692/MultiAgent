@@ -112,3 +112,4 @@ def _load_groq_api_key() -> str:
         "  • Streamlit Cloud: App Settings → Secrets\n"
         "  • Local: Add GROQ_API_KEY=gsk_... to your .env file"
     )
+

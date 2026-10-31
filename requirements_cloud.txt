@@ -30,3 +30,4 @@ markdown>=3.6
 
 # Testing
 pytest>=8.0.0
+
